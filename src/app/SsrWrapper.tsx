@@ -9,6 +9,9 @@ const SsrAuthGuard = async ({ children }: { children: ReactNode }) => {
     const pathname = headersList.get('x-pathname'); 
 
     if (!token) {
+        if(['/login', '/register'].includes(pathname || '')) {
+            return children
+        }
         redirect('/login');
     }
 
