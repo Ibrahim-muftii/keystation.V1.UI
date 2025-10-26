@@ -13,11 +13,11 @@ import { useDispatch } from "react-redux";
 import { toast } from "sonner";
 
 export interface RegisterationIt {
-    first_name:string,
-    last_name:string,
+    firstName:string,
+    lastName:string,
     email: string,
     password: string,
-    confirm_password:string,
+    confirmPassword:string,
 }
 
 
@@ -35,11 +35,11 @@ const RegisterForm = () =>  {
 
     const register = async () => {
         try {
-            if(!registeration?.email ||!registeration.first_name || !registeration.last_name || !registeration.password || !registeration.confirm_password )  {
+            if(!registeration?.email ||!registeration.firstName || !registeration.lastName || !registeration.password || !registeration.confirmPassword )  {
                 return toast.info("Please enter all the field....");
             }
     
-            if(registeration.password !== registeration.confirm_password) {
+            if(registeration.password !== registeration.confirmPassword) {
                 return toast.error("Password does not match please try again");
             }
 
@@ -60,8 +60,8 @@ const RegisterForm = () =>  {
                 <div className="flex flex-col w-full mb-3">
                     <Label className="text-white/60 text-xs mb-2">First Name</Label>
                     <Input
-                        name="first_name"
-                        value={registeration?.first_name || ''}
+                        name="firstName"
+                        value={registeration?.firstName || ''}
                         onChange={handleLoginChange}
                         placeholder="Enter First Name"
                         className="outline-1 outline-white/30 text-white border-white/50"
@@ -71,8 +71,8 @@ const RegisterForm = () =>  {
                 <div className="flex flex-col w-full mb-3">
                     <Label className="text-white/60 text-xs mb-2">Last Name</Label>
                     <Input
-                        name="last_name"
-                        value={registeration?.last_name || ''}
+                        name="lastName"
+                        value={registeration?.lastName || ''}
                         onChange={handleLoginChange}
                         placeholder="Enter First Name"
                         className="outline-1 outline-white/30 text-white border-white/50"
@@ -99,8 +99,8 @@ const RegisterForm = () =>  {
                     onChange={handleLoginChange}  
                     placeholder="Enter Password" 
                     className={`
-                        ${registeration?.password && registeration.password !== '' || registeration?.confirm_password && registeration.confirm_password !== '' ? 'border-green-400 ' : ''}
-                        ${registeration?.password != registeration?.confirm_password ? 'border-red-600 ' : 'border-white/50 '} 
+                        ${registeration?.password && registeration.password !== '' || registeration?.confirmPassword && registeration.confirmPassword !== '' ? 'border-green-400 ' : ''}
+                        ${registeration?.password != registeration?.confirmPassword ? 'border-red-600 ' : 'border-white/50 '} 
                         outline-1 outline-white/30 text-white border-white/50`} 
                     type="password"
                 />
@@ -108,13 +108,13 @@ const RegisterForm = () =>  {
             <div className="flex flex-col w-full mb-3">
                 <Label className="text-white/60 text-xs mb-2">Confirm Password</Label>
                 <Input 
-                    name="confirm_password" 
-                    value={registeration?.confirm_password || ''} 
+                    name="confirmPassword" 
+                    value={registeration?.confirmPassword || ''} 
                     onChange={handleLoginChange}  
                     placeholder="Confirm Password" 
                     className={`
-                        ${registeration?.password && registeration.password !== '' || registeration?.confirm_password && registeration.confirm_password !== '' ? 'border-green-400 ' : ''}
-                        ${registeration?.password != registeration?.confirm_password ? 'border-red-600' : 'border-white/50'} 
+                        ${registeration?.password && registeration.password !== '' || registeration?.confirmPassword && registeration.confirmPassword !== '' ? 'border-green-400 ' : ''}
+                        ${registeration?.password != registeration?.confirmPassword ? 'border-red-600' : 'border-white/50'} 
                         outline-1 outline-white/30 text-white `} 
                     type="password"
                 />
@@ -122,9 +122,9 @@ const RegisterForm = () =>  {
             <div className="flex w-full pt-3 pb-5">
                 <Button 
                     onClick={register}
-                    disabled={!registeration?.email || !registeration?.password || !registeration.first_name || !registeration.last_name || !registeration.confirm_password }
+                    disabled={!registeration?.email || !registeration?.password || !registeration.firstName || !registeration.lastName || !registeration.confirmPassword }
                     variant="outline"  
-                    className="w-full cursor-pointer text-black" 
+                    className="w-full cursor-pointer text-black bg-white!" 
                 >Register User</Button>
             </div>
             <p className="text-xs">Already have an account ? <Link className="rounded-md hover:bg-white hover:text-black hover:px-2 hover:py-0.5" href={"/login"}>Sign In</Link></p>

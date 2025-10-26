@@ -10,8 +10,8 @@ const userSlicer = createSlice({
            return action.payload
         },
         setAccessToken:(state, action) => {
-            // state.AccessToken = action.payload;
-            // console.log("Access Token : ", action.payload);
+            state.AccessToken = action.payload;
+            console.log("Access Token : ", action.payload);
             console.log("State : ", state);
             return state
         },

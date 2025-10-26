@@ -39,7 +39,7 @@ const items = [
     },
     {
         title: "Integartion",
-        url: "/Integrations",
+        url: "/integrations",
         icon: Package,
     },
     {
@@ -107,9 +107,9 @@ const AppSidebar = () => {
             <SidebarFooter className="border-t px-3 py-4">
                 <div className="flex items-center gap-3">
                     <Avatar className="h-9 w-9">
-                        <AvatarImage src={user.avatar} alt={user.name} />
+                        <AvatarImage src={user?.avatar} alt={user?.firstName || ''} />
                         <AvatarFallback>
-                            {user.first_name
+                            {user?.firstName || ''
                                 .split(" ")
                                 .map((n:string) => n[0])
                                 .join("")
@@ -118,9 +118,9 @@ const AppSidebar = () => {
                     </Avatar>
                     <div className="flex flex-col">
                         <span className="text-sm font-medium text-white">
-                            {user.first_name} {user.last_name}
+                            {user?.firstName} {user?.lastName}
                         </span>
-                        <span className="text-xs text-gray-500">{user.email}</span>
+                        <span className="text-xs text-gray-500">{user?.email}</span>
                     </div>
                 </div>
             </SidebarFooter>

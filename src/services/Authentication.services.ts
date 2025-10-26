@@ -7,7 +7,7 @@ const serverUrl:string | undefined = process.env.NEXT_PUBLIC_SERVER_URL;
 
 export const registerUser = async (data:RegisterationIt) => {
     try {
-        const serverApi:string = '/user';
+        const serverApi:string = '/authentication';
         const method:string = '/register'
         const url:string = serverUrl + serverApi + method;
         axios.defaults.withCredentials = true
@@ -29,7 +29,7 @@ export const registerUser = async (data:RegisterationIt) => {
 
 export const loginUser = async (data:LoginIT) => {
     try {
-        const serverApi:string = '/user';
+        const serverApi:string = '/authentication';
         const method:string = '/login'
         const url:string = serverUrl + serverApi + method;
         axios.defaults.withCredentials = true

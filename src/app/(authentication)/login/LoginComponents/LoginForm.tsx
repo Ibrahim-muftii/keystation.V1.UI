@@ -18,6 +18,7 @@ export interface LoginIT {
 
 const LoginForm = () => {
     const [login, setLogin] = useState<LoginIT>();
+    const [loading,setLoading] = useState<boolean>(false);
     const dispatch = useDispatch();
     const router = useRouter();
     const handleLoginChange = (event:ChangeEvent<HTMLInputElement>) => {
@@ -28,6 +29,7 @@ const LoginForm = () => {
     }
 
     const authenticate = async () => {
+        setLoading(true);
         try {
             if(!login?.email || !login.password) {
                 return toast.info("Please Enter All the fields");
@@ -40,7 +42,9 @@ const LoginForm = () => {
             toast.success(response.message);
         } catch (error:any) {
             toast.error(error.message);
-        }   
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
@@ -72,7 +76,7 @@ const LoginForm = () => {
                     onClick={authenticate}
                     disabled={!login?.email || !login?.password }
                     variant="outline"  
-                    className="w-full cursor-pointer text-black" 
+                    className="w-full cursor-pointer light text-black bg-white!" 
                 >Login User</Button>
             </div>
             <p className="text-xs">dont have an account ? <Link className="rounded-md hover:bg-white hover:text-black hover:px-2 hover:py-0.5" href={"/register"}>Create Account</Link></p>

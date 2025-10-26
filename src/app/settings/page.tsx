@@ -1,4 +1,6 @@
 import DetailsFetcher from "@/app/settings/SettingComponents/DetailsFetcher";
+import KeysFetcher from "@/app/settings/SettingComponents/KeysFetcher";
+import PasswordForm from "@/app/settings/SettingComponents/PasswordForm";
 import SsrAuthGuard from "@/app/SsrWrapper";
 
 
@@ -12,14 +14,18 @@ const Page = () => {
                 </div>
             </div>
             <div className="flex">
-                <div className="w-1/2 p-2">
-                    <div className="bg-[#171717] flex flex-col w-full py-3 rounded-xl">
-                        <h5 className="border-b border-white/15 pb-3">Manage Your Details</h5>
+                <div className="w-1/2 flex flex-col p-4">
+                    <div className="bg-[#171717] flex flex-col w-full py-3 rounded-xl border border-white/15">
+                        <h5 className="border-b border-white/15 pb-3 px-3 text-white font-semibold text-xl">Manage Your Details</h5>
                         <DetailsFetcher/>
                     </div>
+                    <div className="bg-[#171717] mt-4 flex flex-col w-full py-3 rounded-xl border border-white/15">
+                        <h5 className="border-b border-white/15 pb-3 px-3 text-white font-semibold text-xl">Manage Your Credentials</h5>
+                        <PasswordForm/>
+                    </div>
                 </div>
-                <div className="w-1/2 p-2">
-              
+                <div className="w-1/2 flex flex-col p-4">
+                    <KeysFetcher/>
                 </div>
             </div>
         </SsrAuthGuard>

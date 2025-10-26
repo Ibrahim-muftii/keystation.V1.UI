@@ -1,10 +1,6 @@
-import AssistantSidebar from "@/app/assistant/AssistantComponents/AssistantSIdebar";
 import AssistantView from "@/app/assistant/AssistantComponents/AssistantView";
-import CreateAssistantButton from "@/app/assistant/AssistantComponents/CreateAssistantButton";
 import SsrAuthGuard from "@/app/SsrWrapper";
-import { getAssistants } from "@/services/Assistants.service";
-import { Assistant } from "next/font/google";
-import { Suspense } from "react";
+
 
 
 const Page = () => {
