@@ -34,7 +34,7 @@ const UploadknowledgeBase = () => {
             if(data.status === 'completed'){
                 setTimeout(() => {
                     setStatus("");
-                },1000)
+                },2500)
             }
         });
 

@@ -73,3 +73,36 @@ export const createAssistant = async (token:string) => {
         throw error?.response?.data?.message || error?.response?.data?.error || "An unexpected error has occurred";
     }
 }
+
+export const updateVapiAssistantData = async (data: any, token: string,) => {
+    try {
+        const serverApi: string = '/assistant';
+        const method: string = '/update-vapi-assistant';
+        const url: string = serverApi + method;
+        const response = await api.put(url, data, {
+            headers: {
+                Authorization:`Bearer ${token}`
+            }
+        })
+        return response;
+    } catch(error:any) {
+        throw error?.response?.data?.message || error?.response?.data?.error || "An unexpected error has occurred";
+    }
+}
+
+export const createVapiCall = async (token:string) => {
+    try {
+        const serverApi: string = '/assistant';
+        const method: string = '/create-call';
+        const url:string = serverApi + method;
+        const response = await api.post(url, {}, {
+            headers: {
+                Authorization:`Bearer ${token}`
+            }
+        });
+        return response;
+    } catch (error:any) {
+        throw error?.response?.data?.message || error?.response?.data?.error || "An unexpected error has occurred";
+
+    }
+}

@@ -102,3 +102,21 @@ export const getUserApiKeys = async (token:string) => {
         throw error.response.data.message || error.response.data.error || "An unexpected error has occurred";
     }
 }
+
+export const getTwilioNumber = async (token:string) => {
+    try {
+        const serverApi: string = '/user';
+        const method: string = '/import-twilio-number';
+        const url: string = serverApi + method;
+        const response = await api({
+            method:"GET",
+            url,
+            headers: {
+                Authorization:`Bearer ${token}`
+            }
+        })
+        return response;
+    } catch(error:any) {
+        throw error.response.data.message || error.response.data.error || "An unexpected error has occurred";
+    }
+}
