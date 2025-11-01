@@ -1,3 +1,4 @@
+"use client"
 import { LoginIT } from "@/app/(authentication)/login/LoginComponents/LoginForm";
 import { RegisterationIt } from "@/app/(authentication)/register/RegisterComponents/RegisterForm";
 import { api } from "@/lib/interceptor";
