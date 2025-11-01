@@ -39,6 +39,7 @@ const LoginForm = () => {
             dispatch(setUser(response.user))
             dispatch(setAccessToken(response.access_token));
             router.push("/")
+            router.refresh();
             toast.success(response.message);
         } catch (error:any) {
             toast.error(error.message);

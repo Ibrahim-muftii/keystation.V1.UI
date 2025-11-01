@@ -1,7 +1,5 @@
-"use client"
 import { LoginIT } from "@/app/(authentication)/login/LoginComponents/LoginForm";
 import { RegisterationIt } from "@/app/(authentication)/register/RegisterComponents/RegisterForm";
-import { api } from "@/lib/interceptor";
 import axios from "axios";
 
 const serverUrl:string | undefined = process.env.NEXT_PUBLIC_SERVER_URL;
@@ -9,11 +7,14 @@ const serverUrl:string | undefined = process.env.NEXT_PUBLIC_SERVER_URL;
 export const registerUser = async (data:RegisterationIt) => {
     try {
         const serverApi:string = '/authentication';
-        const method:string = '/register'
-        const url:string = serverUrl + serverApi + method;
-        console.log("URL : ", url);
+        const method:string = 'register'
+        const url:string = 'api' + serverApi;
+        const payload = {
+            register:data,
+            action: method
+        }
         axios.defaults.withCredentials = true
-        const response = await axios.post(url, data, {
+        const response = await axios.post(url, payload, {
             withCredentials:true
         });
         if(response.status == 200) {
@@ -32,11 +33,14 @@ export const registerUser = async (data:RegisterationIt) => {
 export const loginUser = async (data:LoginIT) => {
     try {
         const serverApi:string = '/authentication';
-        const method:string = '/login'
-        const url:string = serverUrl + serverApi + method;
-        console.log("URL : ", url);
+        const method:string = 'login'
+        const url:string = 'api' + serverApi;
+        const payload = {
+            login:data,
+            action:method
+        }
         axios.defaults.withCredentials = true
-        const response = await axios.post(url,data, {
+        const response = await axios.post(url,payload, {
         });
         if(response.status == 200) {
             return response.data;

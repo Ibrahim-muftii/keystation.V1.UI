@@ -47,6 +47,7 @@ const RegisterForm = () =>  {
             dispatch(setUser(response.user))
             dispatch(setAccessToken(response.access_token));
             router.push('/')
+            router.refresh();
             return toast.success(response.message);
         } catch(error:any) {
             return toast.error(error.message);
