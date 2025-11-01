@@ -63,7 +63,7 @@ const UploadknowledgeBase = () => {
 
     return (
         <div className="flex justify-between items-center p-4">
-            <div className={`absolute top-19 right-6 ${status ? 'scale-100 ' : 'scale-0'} transition-all duration-200`}>
+            <div className={`fixed top-19 right-6 ${status ? 'scale-100 ' : 'scale-0'} transition-all duration-200`}>
                 <div className="bg-white flex items-center w-100 p-3 rounded-xl">
                     <LoaderIcon className="animate-spin w-8! h-8! text-black"/>
                     <div className="flex flex-col ml-3">
