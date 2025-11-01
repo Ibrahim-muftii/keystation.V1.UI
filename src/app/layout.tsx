@@ -6,6 +6,7 @@ import ReduxProvider from "@/app/wrapper/ReduxProvider";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from "@/common-components/sidebar";
 import AppTopbar from "@/common-components/topbar";
+import { cookies } from "next/headers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +24,14 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
+  const token = (await cookies()).get("AccessToken")?.value;
+
   return (
     <html lang="en">
       <body
@@ -36,9 +40,15 @@ export default function RootLayout({
         <Toaster position="top-center"/>
         <ReduxProvider>
           <SidebarProvider className="dark">
-            <AppSidebar/>
+            {
+              token &&
+                <AppSidebar/>
+            }
             <div className="flex w-full flex-col">
-              <AppTopbar />
+              {
+                token &&
+                  <AppTopbar />
+              }
               {children}
             </div>
           </SidebarProvider>
