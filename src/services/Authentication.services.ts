@@ -10,6 +10,7 @@ export const registerUser = async (data:RegisterationIt) => {
         const serverApi:string = '/authentication';
         const method:string = '/register'
         const url:string = serverUrl + serverApi + method;
+        console.log("URL : ", url);
         axios.defaults.withCredentials = true
         const response = await axios.post(url, data, {
             withCredentials:true
@@ -32,6 +33,7 @@ export const loginUser = async (data:LoginIT) => {
         const serverApi:string = '/authentication';
         const method:string = '/login'
         const url:string = serverUrl + serverApi + method;
+        console.log("URL : ", url);
         axios.defaults.withCredentials = true
         const response = await axios.post(url,data, {
         });
