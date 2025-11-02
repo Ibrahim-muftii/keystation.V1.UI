@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { createAssistant } from "@/services/Assistants.service";
 import { RootState } from "@/store/store";
 import { Bot } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import { toast } from "sonner";
 
@@ -14,11 +15,13 @@ interface VapiAssistantPropsIT {
 
 const CreateVapiAssistantButton = (props: VapiAssistantPropsIT) => {
     const token = useSelector((state: RootState) => state.user)?.accessToken;
+    const router = useRouter();
 
     const createVapiAssistant = async () => {
         try {
             const response = await createAssistant(token!);
             toast.success(response.data.message);
+            router.refresh();
         } catch (error: any) {
             console.log("Error : ", error)
             toast.error(error)

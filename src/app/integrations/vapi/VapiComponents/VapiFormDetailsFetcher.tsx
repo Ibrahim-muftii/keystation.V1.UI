@@ -22,8 +22,8 @@ const VapiFormDetailsFetcher = async () => {
                     <TalkToAssistant assistant={assistant} />
                 </div>
                 <div className="bg-black flex flex-col rounded-xl py-3 mb-2 border border-white/15">
-                    <h5 className="text-white text-lg px-4">Assistant Info</h5>
-                    <p className="text-white/65 px-4 pb-3 border-b border-white/15">Manage your account Assistant info here fill out the assistant field according to your needs, make sure to use right message for the Assistant</p>
+                    <h5 className="text-white text-lg px-4">Create a Call</h5>
+                    <p className="text-white/65 px-4 pb-3 border-b border-white/15">Call your customer from here just press the button and start typing the customer click call to initate call to the customer</p>
                     <CreateCallToAssistantButton/>
                 </div>
                 <div className="bg-black flex flex-col rounded-xl py-3 mb-2 border border-white/15">

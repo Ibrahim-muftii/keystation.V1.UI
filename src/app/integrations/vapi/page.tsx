@@ -36,7 +36,7 @@ const Page = async () => {
             :
                 <div className="w-full p-2">
                     <div className="p-2">
-                        <div className="w-full p-3 bg-black border border-white/15 rounded-lg flex flex-col items-center">
+                        <div className="w-full py-10 bg-black border border-white/15 rounded-lg flex flex-col items-center">
                             <h3 className="text-2xl font-bold tracking wide">Assistant Not Created yet</h3>
                             <p>Craete Your assistant To unlock the system prompts and message functionality of the App</p>
                         </div>
