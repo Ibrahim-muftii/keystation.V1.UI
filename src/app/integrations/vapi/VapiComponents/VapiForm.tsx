@@ -43,11 +43,11 @@ const VapiForm = ({assistant}:any) => {
         <React.Fragment>
             <div className="flex flex-col p-4">
                 <label>First Message</label>
-                <Input name="firstMessage" type="text" onChange={handleVapiAssistantChange} value={vapiAssistant.firstMessage || ''} placeholder="Enter First Message..." />
+                <Input name="firstMessage" type="text" onChange={handleVapiAssistantChange} value={vapiAssistant?.firstMessage || ''} placeholder="Enter First Message..." />
             </div> 
             <div className="flex flex-col py-2 px-4">
                 <label>Voice Message</label>
-                <Input name="voicemailMessage" type="text" onChange={handleVapiAssistantChange} value={vapiAssistant.voicemailMessage || ''} placeholder="Enter First Message..." />
+                <Input name="voicemailMessage" type="text" onChange={handleVapiAssistantChange} value={vapiAssistant?.voicemailMessage || ''} placeholder="Enter First Message..." />
             </div>
             <div className="flex justify-end p-4">
                 <Button onClick={updateVapiAssistant} className="px-10! cursor-pointer" ><Save/> Save Initalization</Button>

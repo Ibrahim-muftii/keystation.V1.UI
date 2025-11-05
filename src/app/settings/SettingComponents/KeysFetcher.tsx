@@ -9,6 +9,7 @@ const KeysFetcher = async () => {
     const token = (await cookies()).get("AccessToken")?.value;
     const response = await getUserApiKeys(token!);
     const apiKeys = response.data.keys;
+    console.log(apiKeys)
 
     return (
         <React.Fragment>

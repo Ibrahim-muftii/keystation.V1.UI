@@ -106,3 +106,17 @@ export const createVapiCall = async (token:string) => {
 
     }
 }
+
+export const getCallLogs = async (token:string) => {
+    try {   
+        const serverApi:string = '/assistant';
+        const method:string = '/get-assistant-call-logs';
+        const url:string = serverApi + method;
+        const response = await api.get(url,{
+            headers:{Authorization:`Bearer ${token}`}
+        });
+        return response;
+    }catch(error:any) {
+        return error?.response?.data?.message || error?.response?.data?.error || "An unexpected error has occurred";
+    }
+}

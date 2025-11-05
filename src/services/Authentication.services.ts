@@ -53,3 +53,24 @@ export const loginUser = async (data:LoginIT) => {
         }
     }
 }
+
+export const saveMagentoDetails = async (data:any, token:any) => {
+    try {
+        const serverApi:string = '/authentication';
+        const method:string = '/save-magento-details';
+        const url:string = serverUrl + serverApi + method;
+        const response = await axios.post(url, data, {
+            headers: {
+                Authorization:`Bearer ${token}`
+            }
+        });
+        return response;
+        
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            throw new Error(error.response?.data.message || error.response?.data.error || "Failed to logout session at the moment...");
+        } else {
+            throw new Error("Failed to logout session at the moment...");
+        }
+    }
+}

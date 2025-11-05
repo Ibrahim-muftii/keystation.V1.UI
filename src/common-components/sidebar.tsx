@@ -29,7 +29,7 @@ const items = [
     },
     {
         title: "Call Logs",
-        url: "/Call-logs",
+        url: "/logs",
         icon: Phone,
     },
     {
@@ -38,8 +38,8 @@ const items = [
         icon: Bot,
     },
     {
-        title: "Integartion",
-        url: "/integrations",
+        title: "Integration",
+        url: "/integrations/vapi",
         icon: Package,
     },
     {

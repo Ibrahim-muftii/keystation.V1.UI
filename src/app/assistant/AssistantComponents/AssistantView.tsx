@@ -69,11 +69,11 @@ const AssistantView = async () => {
                             </div>
                             <div className="flex flex-col gap-y-1">
                                 <label className="text-white pl-2">Voice Mail Message</label>
-                                <span className="bg-[#1f1f1f] w-full flex items-center p-2 border border-white/15 rounded-md">{assistant?.voicemailMessage}</span>
+                                <span className="bg-[#1f1f1f] w-full flex items-center p-2 border border-white/15 rounded-md">{assistant?.voicemailMessage || "Not provided"}</span>
                             </div>
                             <div className="flex flex-col gap-y-1">
                                 <label className="text-white pl-2">Message Flows</label>
-                                <pre className="bg-[#1f1f1f] max-h-[460px] overflow-auto w-full whitespace-pre-wrap p-2 border border-white/15 rounded-md">{assistant?.model?.messages?.[0].content}</pre>
+                                <pre className="bg-[#1f1f1f] max-h-[485px] overflow-auto w-full whitespace-pre-wrap p-2 border border-white/15 rounded-md">{assistant?.model?.messages?.[0].content}</pre>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,5 @@
 import IntergrationLinkBar from "@/app/integrations/IntegrationComponents/IntegrationLinkBar";
 import SsrAuthGuard from "@/app/SsrWrapper";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { redirect } from "next/navigation";
 import { ReactNode } from "react";
 
 

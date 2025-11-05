@@ -126,3 +126,7 @@ body {
   background-color: black;
   color:rgba(255,255,255,0.75)
 }
+
+#number-options > .w-fit  {
+  width: 100%!important;
+}

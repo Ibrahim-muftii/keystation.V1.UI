@@ -12,7 +12,7 @@ import './Vapi.css';
 const VAPI_KEY = process.env.NEXT_PUBLIC_VAPI_PUBLIC_KEY;
 const TalkToAssistant = ({assistant}:any) => {
 
-    const { messages, startVoice, stopVoice } = useVapiVoice(assistant.id, VAPI_KEY!);
+    const { messages, startVoice, stopVoice } = useVapiVoice(assistant?.id, VAPI_KEY!);
     const [communicate, setCommunicate] = useState<boolean>(false);
     return (
         <div className="flex flex-row justify-end p-4">

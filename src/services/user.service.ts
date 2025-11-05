@@ -103,11 +103,30 @@ export const getUserApiKeys = async (token:string) => {
     }
 }
 
-export const getTwilioNumber = async (token:string) => {
+export const getTwilioNumber = async (token:string,number:any) => {
     try {
         const serverApi: string = '/user';
         const method: string = '/import-twilio-number';
         const url: string = serverApi + method;
+        const response = await api({
+            method:"POST",
+            url,
+            data:number,
+            headers: {
+                Authorization:`Bearer ${token}`
+            }
+        })
+        return response;
+    } catch(error:any) {
+        throw error.response.data.message || error.response.data.error || "An unexpected error has occurred";
+    }
+}
+
+export const checkMagentoExists = async (token:string) => {
+    try {
+        const serverApi:string = '/user';
+        const method:string = '/is-magento-exists';
+        const url:string = serverApi + method;
         const response = await api({
             method:"GET",
             url,
@@ -117,6 +136,60 @@ export const getTwilioNumber = async (token:string) => {
         })
         return response;
     } catch(error:any) {
-        throw error.response.data.message || error.response.data.error || "An unexpected error has occurred";
+        throw error?.response?.data?.message || error?.response?.data?.error || "An unexpected error has occurred";
+    }
+}
+
+export const getSavedNumbers = async (token:string) => {
+    try {
+        const serverApi:string = '/user';
+        const method:string = '/get-numbers';
+        const url:string = serverApi + method;
+        const response = await api({
+            method:"GET",
+            url,
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
+        return response.data;
+    } catch(error:any) {
+        throw error?.response?.data?.message || error?.response?.data?.error || "An unexpected error has occurred";
+    }
+}
+
+export const saveUserNumber = async (token:string,data:any)  => {
+    try {
+        console.log("DATA : ",data)
+        const serverApi: string = '/user';
+        const method: string = '/save-number';
+        const url: string = serverApi + method;
+        const response = await api.post(url, data, {
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
+        return response.data;
+    } catch (error: any) {
+        throw error?.response?.data?.message || error?.response?.data?.error || "An unexpected error has occurred";
+    }
+}
+
+export const deleteUserNumber = async (token:string, data:any) => {
+    try {
+        const serverApi: string = '/user';
+        const method: string = '/delete-user-number';
+        const url: string = serverApi + method;
+        const response = await api({
+            method: "POST",
+            url,
+            data,
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        return response.data;
+    } catch (error: any) {
+        throw error?.response?.data?.message || error?.response?.data?.error || "An unexpected error has occurred";
     }
 }
