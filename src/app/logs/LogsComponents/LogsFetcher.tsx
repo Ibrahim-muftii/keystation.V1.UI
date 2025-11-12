@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 import React from "react";
 
 
-
 const LogsFetcher = async () => {
     const token = (await cookies()).get("AccessToken")?.value;
     const response = await getCallLogs(token!);
